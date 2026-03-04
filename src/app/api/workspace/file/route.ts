@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
   try {
     const workspace = await getDefaultWorkspace();
     const resolved = resolve(workspace, normalized);
-    if (!resolved.startsWith(workspace)) {
+    if (!resolved.startsWith(workspace + "/") && resolved !== workspace) {
       return NextResponse.json({ error: "Invalid path" }, { status: 403 });
     }
     const fullPath = resolved;

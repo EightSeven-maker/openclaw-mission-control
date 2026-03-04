@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readdir, realpath, stat } from "fs/promises";
 import { extname, join, relative } from "path";
+import { getOpenClawHome } from "@/lib/paths";
 
 type WorkspaceFileRow = {
   relativePath: string;
@@ -88,6 +89,19 @@ export async function GET(request: NextRequest) {
     workspacePath = await realpath(rawPath);
   } catch {
     // keep raw path for better error message
+  }
+
+  const allowedRoot = getOpenClawHome();
+  const allowedWorkspace = process.env.OPENCLAW_WORKSPACE;
+  const withinHome =
+    workspacePath === allowedRoot ||
+    workspacePath.startsWith(allowedRoot + "/");
+  const withinWorkspace =
+    allowedWorkspace &&
+    (workspacePath === allowedWorkspace ||
+      workspacePath.startsWith(allowedWorkspace + "/"));
+  if (!withinHome && !withinWorkspace) {
+    return NextResponse.json({ error: "Path outside allowed directories" }, { status: 403 });
   }
 
   let s;
