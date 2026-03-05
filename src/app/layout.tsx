@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import { Sidebar } from "@/components/sidebar";
 import { Header, AgentChatPanel } from "@/components/header";
@@ -85,11 +86,30 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") ?? "";
+  const isLoginPage = pathname === "/login";
+
+  const fontClasses = `${inter.variable} ${geistMono.variable} antialiased`;
+
+  if (isLoginPage) {
+    return (
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <link rel="icon" href="/icons/icon-192.svg" type="image/svg+xml" />
+        </head>
+        <body className={fontClasses}>
+          <ThemeProvider>{children}</ThemeProvider>
+        </body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -97,7 +117,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
       </head>
       <body
-        className={`${inter.variable} ${geistMono.variable} antialiased`}
+        className={fontClasses}
       >
         <ThemeProvider>
           <SetupGate>
