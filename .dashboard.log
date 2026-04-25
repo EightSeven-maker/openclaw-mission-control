@@ -1,0 +1,44 @@
+
+> @openclaw/dashboard@0.3.3 start
+> next start -H 127.0.0.1 -p 3336
+
+▲ Next.js 16.1.6
+- Local:         http://127.0.0.1:3336
+- Network:       http://127.0.0.1:3336
+
+✓ Starting...
+✓ Ready in 315ms
+{"level":"info","ts":"2026-04-25T19:40:56.115Z","route":"/api/gateway","status":200,"durationMs":4600,"meta":{"gateway":"online"}}
+{"level":"info","ts":"2026-04-25T19:41:13.140Z","route":"/api/gateway","status":200,"durationMs":1,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:41:18.152Z","route":"/api/gateway","status":200,"durationMs":3,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:41:23.164Z","route":"/api/gateway","status":200,"durationMs":2,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:41:28.174Z","route":"/api/gateway","status":200,"durationMs":1,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:41:33.185Z","route":"/api/gateway","status":200,"durationMs":1,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:41:38.198Z","route":"/api/gateway","status":200,"durationMs":4,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:41:43.204Z","route":"/api/gateway","status":200,"durationMs":0,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:41:48.212Z","route":"/api/gateway","status":200,"durationMs":1,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:41:53.222Z","route":"/api/gateway","status":200,"durationMs":1,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:41:58.229Z","route":"/api/gateway","status":200,"durationMs":0,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:03.241Z","route":"/api/gateway","status":200,"durationMs":1,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:08.251Z","route":"/api/gateway","status":200,"durationMs":1,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:13.262Z","route":"/api/gateway","status":200,"durationMs":2,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:18.273Z","route":"/api/gateway","status":200,"durationMs":1,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:23.283Z","route":"/api/gateway","status":200,"durationMs":1,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:28.339Z","route":"/api/gateway","status":200,"durationMs":3,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:33.731Z","route":"/api/gateway","status":200,"durationMs":4,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:36.802Z","route":"/api/gateway","status":200,"durationMs":2,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:37.304Z","route":"/api/gateway","status":200,"durationMs":0,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:44.942Z","route":"/api/gateway","status":200,"durationMs":2,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:42:45.322Z","route":"/api/gateway","status":200,"durationMs":7,"meta":{"gateway":"offline"}}
+{"level":"info","ts":"2026-04-25T19:43:33.339Z","route":"/api/gateway","status":200,"durationMs":2511,"meta":{"gateway":"online"}}
+{"level":"info","ts":"2026-04-25T19:44:07.767Z","route":"/api/gateway","status":200,"durationMs":4643,"meta":{"gateway":"online"}}
+[chat] Streaming via gateway OpenResponses API (agent=main, session=agent:main:mission-control:c337dd79-b0a8-4647-9aa5-e04f49c9c15c, model=agent-setup)
+{"level":"info","ts":"2026-04-25T19:44:33.449Z","route":"/api/gateway","status":200,"durationMs":2672,"meta":{"gateway":"online"}}
+{"level":"info","ts":"2026-04-25T19:57:03.491Z","route":"/api/config","status":200,"durationMs":4019,"meta":{"scope":"config"}}
+{"level":"info","ts":"2026-04-25T19:59:02.375Z","route":"/api/gateway","status":200,"durationMs":3958,"meta":{"gateway":"online"}}
+{"level":"info","ts":"2026-04-25T19:59:09.743Z","route":"/api/config","status":200,"durationMs":7223,"meta":{"scope":"config"}}
+{"level":"info","ts":"2026-04-25T19:59:32.838Z","route":"/api/config","status":200,"durationMs":6331,"meta":{"scope":"config"}}
+{"level":"info","ts":"2026-04-25T19:59:43.117Z","route":"/api/config","status":200,"durationMs":6852,"meta":{"scope":"config"}}
+{"level":"info","ts":"2026-04-25T19:59:52.558Z","route":"/api/gateway","status":200,"durationMs":4592,"meta":{"gateway":"online"}}
+{"level":"info","ts":"2026-04-25T20:02:41.159Z","route":"/api/gateway","status":200,"durationMs":3053,"meta":{"gateway":"online"}}
+{"level":"info","ts":"2026-04-25T20:06:36.021Z","route":"/api/config","status":200,"durationMs":5862,"meta":{"scope":"config"}}

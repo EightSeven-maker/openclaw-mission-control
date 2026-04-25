@@ -1,0 +1,1049 @@
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/grayhawkstudios/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/grayhawkstudios/.openclaw/openclaw-mission-control/package-lock.json
+
+⨯ Error: Command failed: sqlite3 -json /Users/grayhawkstudios/.openclaw/mission-control/usage.db SELECT * FROM alert_firings ORDER BY fired_at_ms DESC LIMIT 20;
+Error: in prepare, database is locked (5)
+
+    at ignore-listed frames {
+  code: 5,
+  killed: false,
+  signal: null,
+  cmd: 'sqlite3 -json /Users/grayhawkstudios/.openclaw/mission-control/usage.db SELECT * FROM alert_firings ORDER BY fired_at_ms DESC LIMIT 20;',
+  stdout: '',
+  stderr: 'Error: in prepare, database is locked (5)\n'
+}
+⨯ Error: Command failed: sqlite3 -json /Users/grayhawkstudios/.openclaw/mission-control/usage.db SELECT value FROM usage_meta WHERE key = 'alerts.last_evaluated_ms' LIMIT 1;
+Error: in prepare, database is locked (5)
+
+    at ignore-listed frames {
+  code: 5,
+  killed: false,
+  signal: null,
+  cmd: "sqlite3 -json /Users/grayhawkstudios/.openclaw/mission-control/usage.db SELECT value FROM usage_meta WHERE key = 'alerts.last_evaluated_ms' LIMIT 1;",
+  stdout: '',
+  stderr: 'Error: in prepare, database is locked (5)\n'
+}
+Config schema unavailable, serving config without schema: RangeError: stdout maxBuffer length exceeded
+    at ignore-listed frames {
+  code: 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER',
+  cmd: '/Users/grayhawkstudios/.npm-global/bin/openclaw gateway call config.schema --json --timeout 15000',
+  stdout: '{\n' +
+    '  "schema": {\n' +
+    '    "$schema": "http://json-schema.org/draft-07/schema#",\n' +
+    '    "type": "object",\n' +
+    '    "properties": {\n' +
+    '      "meta": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastTouchedVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Config Last Touched Version",\n' +
+    '            "description": "Auto-set when OpenClaw writes the config."\n' +
+    '          },\n' +
+    '          "lastTouchedAt": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string"\n' +
+    '              },\n' +
+    '              {}\n' +
+    '            ],\n' +
+    '            "title": "Config Last Touched At",\n' +
+    '            "description": "ISO timestamp of the last config write (auto-set)."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Metadata",\n' +
+    '        "description": "Metadata fields automatically maintained by OpenClaw to record write/version history for this config file. Keep these values system-managed and avoid manual edits unless debugging migration history."\n' +
+    '      },\n' +
+    '      "env": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "shellEnv": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "Shell Environment Import Enabled",\n' +
+    '                "description": "Enables loading environment variables from the user shell profile during startup initialization. Keep enabled for developer machines, or disable in locked-down service environments with explicit env management."\n' +
+    '              },\n' +
+    '              "timeoutMs": {\n' +
+    '                "type": "integer",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 9007199254740991,\n' +
+    '                "title": "Shell Environment Import Timeout (ms)",\n' +
+    '                "description": "Maximum time in milliseconds allowed for shell environment resolution before fallback behavior applies. Use tighter timeouts for faster startup, or increase when shell initialization is heavy."\n' +
+    '              }\n' +
+    '            },\n' +
+    '            "additionalProperties": false,\n' +
+    '            "title": "Shell Environment Import",\n' +
+    '            "description": "Shell environment import controls for loading variables from your login shell during startup. Keep this enabled when you depend on profile-defined secrets or PATH customizations."\n' +
+    '          },\n' +
+    '          "vars": {\n' +
+    '            "type": "object",\n' +
+    '            "propertyNames": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "additionalProperties": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Environment Variable Overrides",\n' +
+    '            "description": "Explicit key/value environment variable overrides merged into runtime process environment for OpenClaw. Use this for deterministic env configuration instead of relying only on shell profile side effects."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": {\n' +
+    '          "type": "string"\n' +
+    '        },\n' +
+    '        "title": "Environment",\n' +
+    '        "description": "Environment import and override settings used to supply runtime variables to the gateway process. Use this section to control shell-env loading and explicit variable injection behavior."\n' +
+    '      },\n' +
+    '      "wizard": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastRunAt": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Timestamp",\n' +
+    '            "description": "ISO timestamp for when the setup wizard most recently completed on this host. Use this to confirm setup recency during support and operational audits."\n' +
+    '          },\n' +
+    '          "lastRunVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Version",\n' +
+    '            "description": "OpenClaw version recorded at the time of the most recent wizard run on this config. Use this when diagnosing behavior differences across version-to-version setup changes."\n' +
+    '          },\n' +
+    '          "lastRunCommit": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Commit",\n' +
+    '            "description": "Source commit identifier recorded for the last wizard execution in development builds. Use this to correlate setup behavior with exact source state during debugging."\n' +
+    '          },\n' +
+    '          "lastRunCommand": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Command",\n' +
+    '            "description": "Command invocation recorded for the latest wizard run to preserve execution context. Use this to reproduce setup steps when verifying setup regressions."\n' +
+    '          },\n' +
+    '          "lastRunMode": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "local"\n' +
+    '              },\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "remote"\n' +
+    '              }\n' +
+    '            ],\n' +
+    '            "title": "Wizard Last Run Mode",\n' +
+    '            "description": "Wizard execution mode recorded as \\"local\\" or \\"remote\\" for the most recent setup flow. Use this to understand whether setup targeted direct local runtime or remote gateway topology."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Setup Wizard State",\n' +
+    '        "description": "Setup wizard state tracking fields that record the most recent guided setup run details. Keep these fields for observability and troubleshooting of setup flows across upgrades."\n' +
+    '      },\n' +
+    '      "diagnostics": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "enabled": {\n' +
+    '            "type": "boolean",\n' +
+    '            "title": "Diagnostics Enabled",\n' +
+    '            "description": "Master toggle for diagnostics instrumentation output in logs and telemetry wiring paths. Keep enabled for normal observability, and disable only in tightly constrained environments."\n' +
+    '          },\n' +
+    '          "flags": {\n' +
+    '            "type": "array",\n' +
+    '            "items": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Diagnostics Flags",\n' +
+    '            "description": "Enable targeted diagnostics logs by flag (e.g. [\\"telegram.http\\"]). Supports wildcards like \\"telegram.*\\" or \\"*\\"."\n' +
+    '          },\n' +
+    '          "stuckSessionWarnMs": {\n' +
+    '            "type": "integer",\n' +
+    '            "exclusiveMinimum": 0,\n' +
+    '            "maximum": 9007199254740991,\n' +
+    '            "title": "Stuck Session Warning Threshold (ms)",\n' +
+    '            "description": "Age threshold in milliseconds for emitting stuck-session warnings while a session remains in processing state. Increase for long multi-tool turns to reduce false positives; decrease for faster hang detection."\n' +
+    '          },\n' +
+    '          "otel": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Enabled",\n' +
+    '                "description": "Enables OpenTelemetry export pipeline for traces, metrics, and logs based on configured endpoint/protocol settings. Keep disabled unless your collector endpoint and auth are fully configured."\n' +
+    '              },\n' +
+    '              "endpoint": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Endpoint",\n' +
+    '                "description": "Collector endpoint URL used for OpenTelemetry export transport, including scheme and port. Use a reachable, trusted collector endpoint and monitor ingestion errors after rollout."\n' +
+    '              },\n' +
+    '              "protocol": {\n' +
+    '                "anyOf": [\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "http/protobuf"\n' +
+    '                  },\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "grpc"\n' +
+    '                  }\n' +
+    '                ],\n' +
+    '                "title": "OpenTelemetry Protocol",\n' +
+    '                "description": "OTel transport protocol for telemetry export: \\"http/protobuf\\" or \\"grpc\\" depending on collector support. Use the protocol your observability backend expects to avoid dropped telemetry payloads."\n' +
+    '              },\n' +
+    '              "headers": {\n' +
+    '                "type": "object",\n' +
+    '                "propertyNames": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "additionalProperties": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "title": "OpenTelemetry Headers",\n' +
+    '                "description": "Additional HTTP/gRPC metadata headers sent with OpenTelemetry export requests, often used for tenant auth or routing. Keep secrets in env-backed values and avoid unnecessary header sprawl."\n' +
+    '              },\n' +
+    '              "serviceName": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Service Name",\n' +
+    '                "description": "Service name reported in telemetry resource attributes to identify this gateway instance in observability backends. Use stable names so dashboards and alerts remain consistent over deployments."\n' +
+    '              },\n' +
+    '              "traces": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Traces Enabled",\n' +
+    '                "description": "Enable trace signal export to the configured OpenTelemetry collector endpoint. Keep enabled when latency/debug tracing is needed, and disable if you only want metrics/logs."\n' +
+    '              },\n' +
+    '              "metrics": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Metrics Enabled",\n' +
+    '                "description": "Enable metrics signal export to the configured OpenTelemetry collector endpoint. Keep enabled for runtime health dashboards, and disable only if metric volume must be minimized."\n' +
+    '              },\n' +
+    '              "logs": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Logs Enabled",\n' +
+    '                "description": "Enable log signal export through OpenTelemetry in addition to local logging sinks. Use this when centralized log correlation is required across services and agents."\n' +
+    '              },\n' +
+    '              "sampleRate": {\n' +
+    '                "type": "number",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 1,\n' +
+    '                "title": "OpenTelemetry Trace Sample Rate",\n' +
+    '                "description": "Trace sampling rate (0-1) controlling h'... 1038560 more characters,
+  stderr: ''
+}
+Config schema unavailable, serving config without schema: RangeError: stdout maxBuffer length exceeded
+    at ignore-listed frames {
+  code: 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER',
+  cmd: '/Users/grayhawkstudios/.npm-global/bin/openclaw gateway call config.schema --json --timeout 15000',
+  stdout: '{\n' +
+    '  "schema": {\n' +
+    '    "$schema": "http://json-schema.org/draft-07/schema#",\n' +
+    '    "type": "object",\n' +
+    '    "properties": {\n' +
+    '      "meta": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastTouchedVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Config Last Touched Version",\n' +
+    '            "description": "Auto-set when OpenClaw writes the config."\n' +
+    '          },\n' +
+    '          "lastTouchedAt": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string"\n' +
+    '              },\n' +
+    '              {}\n' +
+    '            ],\n' +
+    '            "title": "Config Last Touched At",\n' +
+    '            "description": "ISO timestamp of the last config write (auto-set)."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Metadata",\n' +
+    '        "description": "Metadata fields automatically maintained by OpenClaw to record write/version history for this config file. Keep these values system-managed and avoid manual edits unless debugging migration history."\n' +
+    '      },\n' +
+    '      "env": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "shellEnv": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "Shell Environment Import Enabled",\n' +
+    '                "description": "Enables loading environment variables from the user shell profile during startup initialization. Keep enabled for developer machines, or disable in locked-down service environments with explicit env management."\n' +
+    '              },\n' +
+    '              "timeoutMs": {\n' +
+    '                "type": "integer",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 9007199254740991,\n' +
+    '                "title": "Shell Environment Import Timeout (ms)",\n' +
+    '                "description": "Maximum time in milliseconds allowed for shell environment resolution before fallback behavior applies. Use tighter timeouts for faster startup, or increase when shell initialization is heavy."\n' +
+    '              }\n' +
+    '            },\n' +
+    '            "additionalProperties": false,\n' +
+    '            "title": "Shell Environment Import",\n' +
+    '            "description": "Shell environment import controls for loading variables from your login shell during startup. Keep this enabled when you depend on profile-defined secrets or PATH customizations."\n' +
+    '          },\n' +
+    '          "vars": {\n' +
+    '            "type": "object",\n' +
+    '            "propertyNames": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "additionalProperties": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Environment Variable Overrides",\n' +
+    '            "description": "Explicit key/value environment variable overrides merged into runtime process environment for OpenClaw. Use this for deterministic env configuration instead of relying only on shell profile side effects."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": {\n' +
+    '          "type": "string"\n' +
+    '        },\n' +
+    '        "title": "Environment",\n' +
+    '        "description": "Environment import and override settings used to supply runtime variables to the gateway process. Use this section to control shell-env loading and explicit variable injection behavior."\n' +
+    '      },\n' +
+    '      "wizard": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastRunAt": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Timestamp",\n' +
+    '            "description": "ISO timestamp for when the setup wizard most recently completed on this host. Use this to confirm setup recency during support and operational audits."\n' +
+    '          },\n' +
+    '          "lastRunVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Version",\n' +
+    '            "description": "OpenClaw version recorded at the time of the most recent wizard run on this config. Use this when diagnosing behavior differences across version-to-version setup changes."\n' +
+    '          },\n' +
+    '          "lastRunCommit": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Commit",\n' +
+    '            "description": "Source commit identifier recorded for the last wizard execution in development builds. Use this to correlate setup behavior with exact source state during debugging."\n' +
+    '          },\n' +
+    '          "lastRunCommand": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Command",\n' +
+    '            "description": "Command invocation recorded for the latest wizard run to preserve execution context. Use this to reproduce setup steps when verifying setup regressions."\n' +
+    '          },\n' +
+    '          "lastRunMode": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "local"\n' +
+    '              },\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "remote"\n' +
+    '              }\n' +
+    '            ],\n' +
+    '            "title": "Wizard Last Run Mode",\n' +
+    '            "description": "Wizard execution mode recorded as \\"local\\" or \\"remote\\" for the most recent setup flow. Use this to understand whether setup targeted direct local runtime or remote gateway topology."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Setup Wizard State",\n' +
+    '        "description": "Setup wizard state tracking fields that record the most recent guided setup run details. Keep these fields for observability and troubleshooting of setup flows across upgrades."\n' +
+    '      },\n' +
+    '      "diagnostics": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "enabled": {\n' +
+    '            "type": "boolean",\n' +
+    '            "title": "Diagnostics Enabled",\n' +
+    '            "description": "Master toggle for diagnostics instrumentation output in logs and telemetry wiring paths. Keep enabled for normal observability, and disable only in tightly constrained environments."\n' +
+    '          },\n' +
+    '          "flags": {\n' +
+    '            "type": "array",\n' +
+    '            "items": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Diagnostics Flags",\n' +
+    '            "description": "Enable targeted diagnostics logs by flag (e.g. [\\"telegram.http\\"]). Supports wildcards like \\"telegram.*\\" or \\"*\\"."\n' +
+    '          },\n' +
+    '          "stuckSessionWarnMs": {\n' +
+    '            "type": "integer",\n' +
+    '            "exclusiveMinimum": 0,\n' +
+    '            "maximum": 9007199254740991,\n' +
+    '            "title": "Stuck Session Warning Threshold (ms)",\n' +
+    '            "description": "Age threshold in milliseconds for emitting stuck-session warnings while a session remains in processing state. Increase for long multi-tool turns to reduce false positives; decrease for faster hang detection."\n' +
+    '          },\n' +
+    '          "otel": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Enabled",\n' +
+    '                "description": "Enables OpenTelemetry export pipeline for traces, metrics, and logs based on configured endpoint/protocol settings. Keep disabled unless your collector endpoint and auth are fully configured."\n' +
+    '              },\n' +
+    '              "endpoint": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Endpoint",\n' +
+    '                "description": "Collector endpoint URL used for OpenTelemetry export transport, including scheme and port. Use a reachable, trusted collector endpoint and monitor ingestion errors after rollout."\n' +
+    '              },\n' +
+    '              "protocol": {\n' +
+    '                "anyOf": [\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "http/protobuf"\n' +
+    '                  },\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "grpc"\n' +
+    '                  }\n' +
+    '                ],\n' +
+    '                "title": "OpenTelemetry Protocol",\n' +
+    '                "description": "OTel transport protocol for telemetry export: \\"http/protobuf\\" or \\"grpc\\" depending on collector support. Use the protocol your observability backend expects to avoid dropped telemetry payloads."\n' +
+    '              },\n' +
+    '              "headers": {\n' +
+    '                "type": "object",\n' +
+    '                "propertyNames": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "additionalProperties": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "title": "OpenTelemetry Headers",\n' +
+    '                "description": "Additional HTTP/gRPC metadata headers sent with OpenTelemetry export requests, often used for tenant auth or routing. Keep secrets in env-backed values and avoid unnecessary header sprawl."\n' +
+    '              },\n' +
+    '              "serviceName": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Service Name",\n' +
+    '                "description": "Service name reported in telemetry resource attributes to identify this gateway instance in observability backends. Use stable names so dashboards and alerts remain consistent over deployments."\n' +
+    '              },\n' +
+    '              "traces": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Traces Enabled",\n' +
+    '                "description": "Enable trace signal export to the configured OpenTelemetry collector endpoint. Keep enabled when latency/debug tracing is needed, and disable if you only want metrics/logs."\n' +
+    '              },\n' +
+    '              "metrics": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Metrics Enabled",\n' +
+    '                "description": "Enable metrics signal export to the configured OpenTelemetry collector endpoint. Keep enabled for runtime health dashboards, and disable only if metric volume must be minimized."\n' +
+    '              },\n' +
+    '              "logs": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Logs Enabled",\n' +
+    '                "description": "Enable log signal export through OpenTelemetry in addition to local logging sinks. Use this when centralized log correlation is required across services and agents."\n' +
+    '              },\n' +
+    '              "sampleRate": {\n' +
+    '                "type": "number",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 1,\n' +
+    '                "title": "OpenTelemetry Trace Sample Rate",\n' +
+    '                "description": "Trace sampling rate (0-1) controlling h'... 1038560 more characters,
+  stderr: ''
+}
+Config schema unavailable, serving config without schema: RangeError: stdout maxBuffer length exceeded
+    at ignore-listed frames {
+  code: 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER',
+  cmd: '/Users/grayhawkstudios/.npm-global/bin/openclaw gateway call config.schema --json --timeout 15000',
+  stdout: '{\n' +
+    '  "schema": {\n' +
+    '    "$schema": "http://json-schema.org/draft-07/schema#",\n' +
+    '    "type": "object",\n' +
+    '    "properties": {\n' +
+    '      "meta": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastTouchedVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Config Last Touched Version",\n' +
+    '            "description": "Auto-set when OpenClaw writes the config."\n' +
+    '          },\n' +
+    '          "lastTouchedAt": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string"\n' +
+    '              },\n' +
+    '              {}\n' +
+    '            ],\n' +
+    '            "title": "Config Last Touched At",\n' +
+    '            "description": "ISO timestamp of the last config write (auto-set)."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Metadata",\n' +
+    '        "description": "Metadata fields automatically maintained by OpenClaw to record write/version history for this config file. Keep these values system-managed and avoid manual edits unless debugging migration history."\n' +
+    '      },\n' +
+    '      "env": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "shellEnv": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "Shell Environment Import Enabled",\n' +
+    '                "description": "Enables loading environment variables from the user shell profile during startup initialization. Keep enabled for developer machines, or disable in locked-down service environments with explicit env management."\n' +
+    '              },\n' +
+    '              "timeoutMs": {\n' +
+    '                "type": "integer",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 9007199254740991,\n' +
+    '                "title": "Shell Environment Import Timeout (ms)",\n' +
+    '                "description": "Maximum time in milliseconds allowed for shell environment resolution before fallback behavior applies. Use tighter timeouts for faster startup, or increase when shell initialization is heavy."\n' +
+    '              }\n' +
+    '            },\n' +
+    '            "additionalProperties": false,\n' +
+    '            "title": "Shell Environment Import",\n' +
+    '            "description": "Shell environment import controls for loading variables from your login shell during startup. Keep this enabled when you depend on profile-defined secrets or PATH customizations."\n' +
+    '          },\n' +
+    '          "vars": {\n' +
+    '            "type": "object",\n' +
+    '            "propertyNames": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "additionalProperties": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Environment Variable Overrides",\n' +
+    '            "description": "Explicit key/value environment variable overrides merged into runtime process environment for OpenClaw. Use this for deterministic env configuration instead of relying only on shell profile side effects."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": {\n' +
+    '          "type": "string"\n' +
+    '        },\n' +
+    '        "title": "Environment",\n' +
+    '        "description": "Environment import and override settings used to supply runtime variables to the gateway process. Use this section to control shell-env loading and explicit variable injection behavior."\n' +
+    '      },\n' +
+    '      "wizard": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastRunAt": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Timestamp",\n' +
+    '            "description": "ISO timestamp for when the setup wizard most recently completed on this host. Use this to confirm setup recency during support and operational audits."\n' +
+    '          },\n' +
+    '          "lastRunVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Version",\n' +
+    '            "description": "OpenClaw version recorded at the time of the most recent wizard run on this config. Use this when diagnosing behavior differences across version-to-version setup changes."\n' +
+    '          },\n' +
+    '          "lastRunCommit": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Commit",\n' +
+    '            "description": "Source commit identifier recorded for the last wizard execution in development builds. Use this to correlate setup behavior with exact source state during debugging."\n' +
+    '          },\n' +
+    '          "lastRunCommand": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Command",\n' +
+    '            "description": "Command invocation recorded for the latest wizard run to preserve execution context. Use this to reproduce setup steps when verifying setup regressions."\n' +
+    '          },\n' +
+    '          "lastRunMode": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "local"\n' +
+    '              },\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "remote"\n' +
+    '              }\n' +
+    '            ],\n' +
+    '            "title": "Wizard Last Run Mode",\n' +
+    '            "description": "Wizard execution mode recorded as \\"local\\" or \\"remote\\" for the most recent setup flow. Use this to understand whether setup targeted direct local runtime or remote gateway topology."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Setup Wizard State",\n' +
+    '        "description": "Setup wizard state tracking fields that record the most recent guided setup run details. Keep these fields for observability and troubleshooting of setup flows across upgrades."\n' +
+    '      },\n' +
+    '      "diagnostics": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "enabled": {\n' +
+    '            "type": "boolean",\n' +
+    '            "title": "Diagnostics Enabled",\n' +
+    '            "description": "Master toggle for diagnostics instrumentation output in logs and telemetry wiring paths. Keep enabled for normal observability, and disable only in tightly constrained environments."\n' +
+    '          },\n' +
+    '          "flags": {\n' +
+    '            "type": "array",\n' +
+    '            "items": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Diagnostics Flags",\n' +
+    '            "description": "Enable targeted diagnostics logs by flag (e.g. [\\"telegram.http\\"]). Supports wildcards like \\"telegram.*\\" or \\"*\\"."\n' +
+    '          },\n' +
+    '          "stuckSessionWarnMs": {\n' +
+    '            "type": "integer",\n' +
+    '            "exclusiveMinimum": 0,\n' +
+    '            "maximum": 9007199254740991,\n' +
+    '            "title": "Stuck Session Warning Threshold (ms)",\n' +
+    '            "description": "Age threshold in milliseconds for emitting stuck-session warnings while a session remains in processing state. Increase for long multi-tool turns to reduce false positives; decrease for faster hang detection."\n' +
+    '          },\n' +
+    '          "otel": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Enabled",\n' +
+    '                "description": "Enables OpenTelemetry export pipeline for traces, metrics, and logs based on configured endpoint/protocol settings. Keep disabled unless your collector endpoint and auth are fully configured."\n' +
+    '              },\n' +
+    '              "endpoint": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Endpoint",\n' +
+    '                "description": "Collector endpoint URL used for OpenTelemetry export transport, including scheme and port. Use a reachable, trusted collector endpoint and monitor ingestion errors after rollout."\n' +
+    '              },\n' +
+    '              "protocol": {\n' +
+    '                "anyOf": [\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "http/protobuf"\n' +
+    '                  },\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "grpc"\n' +
+    '                  }\n' +
+    '                ],\n' +
+    '                "title": "OpenTelemetry Protocol",\n' +
+    '                "description": "OTel transport protocol for telemetry export: \\"http/protobuf\\" or \\"grpc\\" depending on collector support. Use the protocol your observability backend expects to avoid dropped telemetry payloads."\n' +
+    '              },\n' +
+    '              "headers": {\n' +
+    '                "type": "object",\n' +
+    '                "propertyNames": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "additionalProperties": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "title": "OpenTelemetry Headers",\n' +
+    '                "description": "Additional HTTP/gRPC metadata headers sent with OpenTelemetry export requests, often used for tenant auth or routing. Keep secrets in env-backed values and avoid unnecessary header sprawl."\n' +
+    '              },\n' +
+    '              "serviceName": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Service Name",\n' +
+    '                "description": "Service name reported in telemetry resource attributes to identify this gateway instance in observability backends. Use stable names so dashboards and alerts remain consistent over deployments."\n' +
+    '              },\n' +
+    '              "traces": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Traces Enabled",\n' +
+    '                "description": "Enable trace signal export to the configured OpenTelemetry collector endpoint. Keep enabled when latency/debug tracing is needed, and disable if you only want metrics/logs."\n' +
+    '              },\n' +
+    '              "metrics": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Metrics Enabled",\n' +
+    '                "description": "Enable metrics signal export to the configured OpenTelemetry collector endpoint. Keep enabled for runtime health dashboards, and disable only if metric volume must be minimized."\n' +
+    '              },\n' +
+    '              "logs": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Logs Enabled",\n' +
+    '                "description": "Enable log signal export through OpenTelemetry in addition to local logging sinks. Use this when centralized log correlation is required across services and agents."\n' +
+    '              },\n' +
+    '              "sampleRate": {\n' +
+    '                "type": "number",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 1,\n' +
+    '                "title": "OpenTelemetry Trace Sample Rate",\n' +
+    '                "description": "Trace sampling rate (0-1) controlling h'... 1038560 more characters,
+  stderr: ''
+}
+Config schema unavailable, serving config without schema: RangeError: stdout maxBuffer length exceeded
+    at ignore-listed frames {
+  code: 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER',
+  cmd: '/Users/grayhawkstudios/.npm-global/bin/openclaw gateway call config.schema --json --timeout 15000',
+  stdout: '{\n' +
+    '  "schema": {\n' +
+    '    "$schema": "http://json-schema.org/draft-07/schema#",\n' +
+    '    "type": "object",\n' +
+    '    "properties": {\n' +
+    '      "meta": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastTouchedVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Config Last Touched Version",\n' +
+    '            "description": "Auto-set when OpenClaw writes the config."\n' +
+    '          },\n' +
+    '          "lastTouchedAt": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string"\n' +
+    '              },\n' +
+    '              {}\n' +
+    '            ],\n' +
+    '            "title": "Config Last Touched At",\n' +
+    '            "description": "ISO timestamp of the last config write (auto-set)."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Metadata",\n' +
+    '        "description": "Metadata fields automatically maintained by OpenClaw to record write/version history for this config file. Keep these values system-managed and avoid manual edits unless debugging migration history."\n' +
+    '      },\n' +
+    '      "env": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "shellEnv": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "Shell Environment Import Enabled",\n' +
+    '                "description": "Enables loading environment variables from the user shell profile during startup initialization. Keep enabled for developer machines, or disable in locked-down service environments with explicit env management."\n' +
+    '              },\n' +
+    '              "timeoutMs": {\n' +
+    '                "type": "integer",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 9007199254740991,\n' +
+    '                "title": "Shell Environment Import Timeout (ms)",\n' +
+    '                "description": "Maximum time in milliseconds allowed for shell environment resolution before fallback behavior applies. Use tighter timeouts for faster startup, or increase when shell initialization is heavy."\n' +
+    '              }\n' +
+    '            },\n' +
+    '            "additionalProperties": false,\n' +
+    '            "title": "Shell Environment Import",\n' +
+    '            "description": "Shell environment import controls for loading variables from your login shell during startup. Keep this enabled when you depend on profile-defined secrets or PATH customizations."\n' +
+    '          },\n' +
+    '          "vars": {\n' +
+    '            "type": "object",\n' +
+    '            "propertyNames": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "additionalProperties": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Environment Variable Overrides",\n' +
+    '            "description": "Explicit key/value environment variable overrides merged into runtime process environment for OpenClaw. Use this for deterministic env configuration instead of relying only on shell profile side effects."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": {\n' +
+    '          "type": "string"\n' +
+    '        },\n' +
+    '        "title": "Environment",\n' +
+    '        "description": "Environment import and override settings used to supply runtime variables to the gateway process. Use this section to control shell-env loading and explicit variable injection behavior."\n' +
+    '      },\n' +
+    '      "wizard": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastRunAt": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Timestamp",\n' +
+    '            "description": "ISO timestamp for when the setup wizard most recently completed on this host. Use this to confirm setup recency during support and operational audits."\n' +
+    '          },\n' +
+    '          "lastRunVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Version",\n' +
+    '            "description": "OpenClaw version recorded at the time of the most recent wizard run on this config. Use this when diagnosing behavior differences across version-to-version setup changes."\n' +
+    '          },\n' +
+    '          "lastRunCommit": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Commit",\n' +
+    '            "description": "Source commit identifier recorded for the last wizard execution in development builds. Use this to correlate setup behavior with exact source state during debugging."\n' +
+    '          },\n' +
+    '          "lastRunCommand": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Command",\n' +
+    '            "description": "Command invocation recorded for the latest wizard run to preserve execution context. Use this to reproduce setup steps when verifying setup regressions."\n' +
+    '          },\n' +
+    '          "lastRunMode": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "local"\n' +
+    '              },\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "remote"\n' +
+    '              }\n' +
+    '            ],\n' +
+    '            "title": "Wizard Last Run Mode",\n' +
+    '            "description": "Wizard execution mode recorded as \\"local\\" or \\"remote\\" for the most recent setup flow. Use this to understand whether setup targeted direct local runtime or remote gateway topology."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Setup Wizard State",\n' +
+    '        "description": "Setup wizard state tracking fields that record the most recent guided setup run details. Keep these fields for observability and troubleshooting of setup flows across upgrades."\n' +
+    '      },\n' +
+    '      "diagnostics": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "enabled": {\n' +
+    '            "type": "boolean",\n' +
+    '            "title": "Diagnostics Enabled",\n' +
+    '            "description": "Master toggle for diagnostics instrumentation output in logs and telemetry wiring paths. Keep enabled for normal observability, and disable only in tightly constrained environments."\n' +
+    '          },\n' +
+    '          "flags": {\n' +
+    '            "type": "array",\n' +
+    '            "items": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Diagnostics Flags",\n' +
+    '            "description": "Enable targeted diagnostics logs by flag (e.g. [\\"telegram.http\\"]). Supports wildcards like \\"telegram.*\\" or \\"*\\"."\n' +
+    '          },\n' +
+    '          "stuckSessionWarnMs": {\n' +
+    '            "type": "integer",\n' +
+    '            "exclusiveMinimum": 0,\n' +
+    '            "maximum": 9007199254740991,\n' +
+    '            "title": "Stuck Session Warning Threshold (ms)",\n' +
+    '            "description": "Age threshold in milliseconds for emitting stuck-session warnings while a session remains in processing state. Increase for long multi-tool turns to reduce false positives; decrease for faster hang detection."\n' +
+    '          },\n' +
+    '          "otel": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Enabled",\n' +
+    '                "description": "Enables OpenTelemetry export pipeline for traces, metrics, and logs based on configured endpoint/protocol settings. Keep disabled unless your collector endpoint and auth are fully configured."\n' +
+    '              },\n' +
+    '              "endpoint": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Endpoint",\n' +
+    '                "description": "Collector endpoint URL used for OpenTelemetry export transport, including scheme and port. Use a reachable, trusted collector endpoint and monitor ingestion errors after rollout."\n' +
+    '              },\n' +
+    '              "protocol": {\n' +
+    '                "anyOf": [\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "http/protobuf"\n' +
+    '                  },\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "grpc"\n' +
+    '                  }\n' +
+    '                ],\n' +
+    '                "title": "OpenTelemetry Protocol",\n' +
+    '                "description": "OTel transport protocol for telemetry export: \\"http/protobuf\\" or \\"grpc\\" depending on collector support. Use the protocol your observability backend expects to avoid dropped telemetry payloads."\n' +
+    '              },\n' +
+    '              "headers": {\n' +
+    '                "type": "object",\n' +
+    '                "propertyNames": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "additionalProperties": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "title": "OpenTelemetry Headers",\n' +
+    '                "description": "Additional HTTP/gRPC metadata headers sent with OpenTelemetry export requests, often used for tenant auth or routing. Keep secrets in env-backed values and avoid unnecessary header sprawl."\n' +
+    '              },\n' +
+    '              "serviceName": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Service Name",\n' +
+    '                "description": "Service name reported in telemetry resource attributes to identify this gateway instance in observability backends. Use stable names so dashboards and alerts remain consistent over deployments."\n' +
+    '              },\n' +
+    '              "traces": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Traces Enabled",\n' +
+    '                "description": "Enable trace signal export to the configured OpenTelemetry collector endpoint. Keep enabled when latency/debug tracing is needed, and disable if you only want metrics/logs."\n' +
+    '              },\n' +
+    '              "metrics": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Metrics Enabled",\n' +
+    '                "description": "Enable metrics signal export to the configured OpenTelemetry collector endpoint. Keep enabled for runtime health dashboards, and disable only if metric volume must be minimized."\n' +
+    '              },\n' +
+    '              "logs": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Logs Enabled",\n' +
+    '                "description": "Enable log signal export through OpenTelemetry in addition to local logging sinks. Use this when centralized log correlation is required across services and agents."\n' +
+    '              },\n' +
+    '              "sampleRate": {\n' +
+    '                "type": "number",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 1,\n' +
+    '                "title": "OpenTelemetry Trace Sample Rate",\n' +
+    '                "description": "Trace sampling rate (0-1) controlling h'... 1038560 more characters,
+  stderr: ''
+}
+Config schema unavailable, serving config without schema: RangeError: stdout maxBuffer length exceeded
+    at ignore-listed frames {
+  code: 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER',
+  cmd: '/Users/grayhawkstudios/.npm-global/bin/openclaw gateway call config.schema --json --timeout 15000',
+  stdout: '{\n' +
+    '  "schema": {\n' +
+    '    "$schema": "http://json-schema.org/draft-07/schema#",\n' +
+    '    "type": "object",\n' +
+    '    "properties": {\n' +
+    '      "meta": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastTouchedVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Config Last Touched Version",\n' +
+    '            "description": "Auto-set when OpenClaw writes the config."\n' +
+    '          },\n' +
+    '          "lastTouchedAt": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string"\n' +
+    '              },\n' +
+    '              {}\n' +
+    '            ],\n' +
+    '            "title": "Config Last Touched At",\n' +
+    '            "description": "ISO timestamp of the last config write (auto-set)."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Metadata",\n' +
+    '        "description": "Metadata fields automatically maintained by OpenClaw to record write/version history for this config file. Keep these values system-managed and avoid manual edits unless debugging migration history."\n' +
+    '      },\n' +
+    '      "env": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "shellEnv": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "Shell Environment Import Enabled",\n' +
+    '                "description": "Enables loading environment variables from the user shell profile during startup initialization. Keep enabled for developer machines, or disable in locked-down service environments with explicit env management."\n' +
+    '              },\n' +
+    '              "timeoutMs": {\n' +
+    '                "type": "integer",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 9007199254740991,\n' +
+    '                "title": "Shell Environment Import Timeout (ms)",\n' +
+    '                "description": "Maximum time in milliseconds allowed for shell environment resolution before fallback behavior applies. Use tighter timeouts for faster startup, or increase when shell initialization is heavy."\n' +
+    '              }\n' +
+    '            },\n' +
+    '            "additionalProperties": false,\n' +
+    '            "title": "Shell Environment Import",\n' +
+    '            "description": "Shell environment import controls for loading variables from your login shell during startup. Keep this enabled when you depend on profile-defined secrets or PATH customizations."\n' +
+    '          },\n' +
+    '          "vars": {\n' +
+    '            "type": "object",\n' +
+    '            "propertyNames": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "additionalProperties": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Environment Variable Overrides",\n' +
+    '            "description": "Explicit key/value environment variable overrides merged into runtime process environment for OpenClaw. Use this for deterministic env configuration instead of relying only on shell profile side effects."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": {\n' +
+    '          "type": "string"\n' +
+    '        },\n' +
+    '        "title": "Environment",\n' +
+    '        "description": "Environment import and override settings used to supply runtime variables to the gateway process. Use this section to control shell-env loading and explicit variable injection behavior."\n' +
+    '      },\n' +
+    '      "wizard": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "lastRunAt": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Timestamp",\n' +
+    '            "description": "ISO timestamp for when the setup wizard most recently completed on this host. Use this to confirm setup recency during support and operational audits."\n' +
+    '          },\n' +
+    '          "lastRunVersion": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Version",\n' +
+    '            "description": "OpenClaw version recorded at the time of the most recent wizard run on this config. Use this when diagnosing behavior differences across version-to-version setup changes."\n' +
+    '          },\n' +
+    '          "lastRunCommit": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Commit",\n' +
+    '            "description": "Source commit identifier recorded for the last wizard execution in development builds. Use this to correlate setup behavior with exact source state during debugging."\n' +
+    '          },\n' +
+    '          "lastRunCommand": {\n' +
+    '            "type": "string",\n' +
+    '            "title": "Wizard Last Run Command",\n' +
+    '            "description": "Command invocation recorded for the latest wizard run to preserve execution context. Use this to reproduce setup steps when verifying setup regressions."\n' +
+    '          },\n' +
+    '          "lastRunMode": {\n' +
+    '            "anyOf": [\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "local"\n' +
+    '              },\n' +
+    '              {\n' +
+    '                "type": "string",\n' +
+    '                "const": "remote"\n' +
+    '              }\n' +
+    '            ],\n' +
+    '            "title": "Wizard Last Run Mode",\n' +
+    '            "description": "Wizard execution mode recorded as \\"local\\" or \\"remote\\" for the most recent setup flow. Use this to understand whether setup targeted direct local runtime or remote gateway topology."\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "additionalProperties": false,\n' +
+    '        "title": "Setup Wizard State",\n' +
+    '        "description": "Setup wizard state tracking fields that record the most recent guided setup run details. Keep these fields for observability and troubleshooting of setup flows across upgrades."\n' +
+    '      },\n' +
+    '      "diagnostics": {\n' +
+    '        "type": "object",\n' +
+    '        "properties": {\n' +
+    '          "enabled": {\n' +
+    '            "type": "boolean",\n' +
+    '            "title": "Diagnostics Enabled",\n' +
+    '            "description": "Master toggle for diagnostics instrumentation output in logs and telemetry wiring paths. Keep enabled for normal observability, and disable only in tightly constrained environments."\n' +
+    '          },\n' +
+    '          "flags": {\n' +
+    '            "type": "array",\n' +
+    '            "items": {\n' +
+    '              "type": "string"\n' +
+    '            },\n' +
+    '            "title": "Diagnostics Flags",\n' +
+    '            "description": "Enable targeted diagnostics logs by flag (e.g. [\\"telegram.http\\"]). Supports wildcards like \\"telegram.*\\" or \\"*\\"."\n' +
+    '          },\n' +
+    '          "stuckSessionWarnMs": {\n' +
+    '            "type": "integer",\n' +
+    '            "exclusiveMinimum": 0,\n' +
+    '            "maximum": 9007199254740991,\n' +
+    '            "title": "Stuck Session Warning Threshold (ms)",\n' +
+    '            "description": "Age threshold in milliseconds for emitting stuck-session warnings while a session remains in processing state. Increase for long multi-tool turns to reduce false positives; decrease for faster hang detection."\n' +
+    '          },\n' +
+    '          "otel": {\n' +
+    '            "type": "object",\n' +
+    '            "properties": {\n' +
+    '              "enabled": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Enabled",\n' +
+    '                "description": "Enables OpenTelemetry export pipeline for traces, metrics, and logs based on configured endpoint/protocol settings. Keep disabled unless your collector endpoint and auth are fully configured."\n' +
+    '              },\n' +
+    '              "endpoint": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Endpoint",\n' +
+    '                "description": "Collector endpoint URL used for OpenTelemetry export transport, including scheme and port. Use a reachable, trusted collector endpoint and monitor ingestion errors after rollout."\n' +
+    '              },\n' +
+    '              "protocol": {\n' +
+    '                "anyOf": [\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "http/protobuf"\n' +
+    '                  },\n' +
+    '                  {\n' +
+    '                    "type": "string",\n' +
+    '                    "const": "grpc"\n' +
+    '                  }\n' +
+    '                ],\n' +
+    '                "title": "OpenTelemetry Protocol",\n' +
+    '                "description": "OTel transport protocol for telemetry export: \\"http/protobuf\\" or \\"grpc\\" depending on collector support. Use the protocol your observability backend expects to avoid dropped telemetry payloads."\n' +
+    '              },\n' +
+    '              "headers": {\n' +
+    '                "type": "object",\n' +
+    '                "propertyNames": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "additionalProperties": {\n' +
+    '                  "type": "string"\n' +
+    '                },\n' +
+    '                "title": "OpenTelemetry Headers",\n' +
+    '                "description": "Additional HTTP/gRPC metadata headers sent with OpenTelemetry export requests, often used for tenant auth or routing. Keep secrets in env-backed values and avoid unnecessary header sprawl."\n' +
+    '              },\n' +
+    '              "serviceName": {\n' +
+    '                "type": "string",\n' +
+    '                "title": "OpenTelemetry Service Name",\n' +
+    '                "description": "Service name reported in telemetry resource attributes to identify this gateway instance in observability backends. Use stable names so dashboards and alerts remain consistent over deployments."\n' +
+    '              },\n' +
+    '              "traces": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Traces Enabled",\n' +
+    '                "description": "Enable trace signal export to the configured OpenTelemetry collector endpoint. Keep enabled when latency/debug tracing is needed, and disable if you only want metrics/logs."\n' +
+    '              },\n' +
+    '              "metrics": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Metrics Enabled",\n' +
+    '                "description": "Enable metrics signal export to the configured OpenTelemetry collector endpoint. Keep enabled for runtime health dashboards, and disable only if metric volume must be minimized."\n' +
+    '              },\n' +
+    '              "logs": {\n' +
+    '                "type": "boolean",\n' +
+    '                "title": "OpenTelemetry Logs Enabled",\n' +
+    '                "description": "Enable log signal export through OpenTelemetry in addition to local logging sinks. Use this when centralized log correlation is required across services and agents."\n' +
+    '              },\n' +
+    '              "sampleRate": {\n' +
+    '                "type": "number",\n' +
+    '                "minimum": 0,\n' +
+    '                "maximum": 1,\n' +
+    '                "title": "OpenTelemetry Trace Sample Rate",\n' +
+    '                "description": "Trace sampling rate (0-1) controlling h'... 1038560 more characters,
+  stderr: ''
+}
