@@ -1102,10 +1102,10 @@ export function DashboardView() {
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-stone-900 dark:text-stone-100">
-                    Welcome to Mission Control
+                    Welcome to 87 Command Center
                   </h3>
                   <p className="mt-1 text-sm text-stone-600 dark:text-stone-300">
-                    Your OpenClaw agent is running. Here are some things to try:
+                    Your 87 team is ready. Here are some things to try:
                   </p>
                   <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {[

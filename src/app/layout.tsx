@@ -23,20 +23,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mission Control — OpenClaw GUI Dashboard for Local AI Agents",
+  title: "87 Command Center — AI Agent Dashboard",
   description:
-    "Mission Control is the open-source OpenClaw GUI and AI agent dashboard. " +
+    "87 Command Center is the AI agent dashboard for PropFirmMart. " +
     "Monitor, chat with, and manage your local AI agents, models, cron jobs, " +
     "vector memory, and skills — all from a single local AI management tool " +
     "that runs entirely on your machine.",
   keywords: [
-    "OpenClaw GUI",
+    "87 Command Center",
     "AI agent dashboard",
     "local AI management tool",
-    "OpenClaw dashboard",
+    "PropFirmMart dashboard",
     "AI agent manager",
     "local AI assistant",
-    "OpenClaw Mission Control",
     "self-hosted AI dashboard",
     "AI agent monitoring",
     "open source AI GUI",
@@ -47,23 +46,23 @@ export const metadata: Metadata = {
     "private AI",
   ],
   manifest: "/manifest.json",
-  applicationName: "Mission Control",
+  applicationName: "87 Command Center",
   authors: [{ name: "OpenClaw" }],
   creator: "OpenClaw",
   publisher: "OpenClaw",
   category: "technology",
   openGraph: {
     type: "website",
-    siteName: "Mission Control — OpenClaw GUI",
-    title: "Mission Control — The AI Agent Dashboard for OpenClaw",
+    siteName: "87 Command Center",
+    title: "87 Command Center — The AI Agent Dashboard",
     description:
       "Monitor, chat with, and manage your local AI agents from one sleek dashboard. " +
-      "Open-source, self-hosted, zero cloud. The ultimate OpenClaw GUI.",
+      "Open-source, self-hosted, zero cloud. The ultimate AI agent dashboard.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mission Control — OpenClaw GUI & AI Agent Dashboard",
+    title: "87 Command Center — AI Agent Dashboard",
     description:
       "Open-source local AI management tool. Monitor agents, models, cron jobs, " +
       "vector memory and more — entirely on your machine.",
@@ -71,7 +70,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Mission Control",
+    title: "87 Command Center",
   },
   other: {
     "mobile-web-app-capable": "yes",
