@@ -240,6 +240,8 @@ function SectionContent({ section }: { section: DashboardSection }) {
       return <DoctorView />;
     case "activity":
       return <ActivityView />;
+    case "team":
+      return <TeamView />;
     case "help":
       return <HelpView />;
     default:

@@ -62,10 +62,10 @@ const navItems: NavItem[] = [
   { group: "Overview", section: "dashboard", label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
   { section: "activity", label: "Activity", icon: Activity, href: "/activity" },
   { section: "usage", label: "Usage", icon: BarChart3, href: "/usage" },
+  { section: "team", label: "87 Team", icon: Users, href: "/team" },
   // ── Agents ──
-  { group: "Agents", section: "agents", label: "Agents", icon: Users, href: "/agents" },
+  { group: "87 Agents", section: "agents", label: "87 Agents", icon: Users, href: "/agents" },
   { section: "agents", label: "Subagents", icon: Users2, href: "/agents?tab=subagents", tab: "subagents", isSubItem: true },
-  { section: "agents", label: "Team", icon: Users, href: "/agents?tab=team", tab: "team", isSubItem: true },
   { section: "chat", label: "Chat", icon: MessageCircle, href: "/chat" },
   { section: "channels", label: "Channels", icon: Radio, href: "/channels" },
   { section: "sessions", label: "Sessions", icon: MessageSquare, href: "/sessions" },
