@@ -65,6 +65,7 @@ const navItems: NavItem[] = [
   // ── Agents ──
   { group: "Agents", section: "agents", label: "Agents", icon: Users, href: "/agents" },
   { section: "agents", label: "Subagents", icon: Users2, href: "/agents?tab=subagents", tab: "subagents", isSubItem: true },
+  { section: "agents", label: "Team", icon: Users, href: "/agents?tab=team", tab: "team", isSubItem: true },
   { section: "chat", label: "Chat", icon: MessageCircle, href: "/chat" },
   { section: "channels", label: "Channels", icon: Radio, href: "/channels" },
   { section: "sessions", label: "Sessions", icon: MessageSquare, href: "/sessions" },
@@ -181,7 +182,8 @@ function SidebarNav({ onNavigate, collapsed }: { onNavigate?: () => void; collap
   const isClawHubActive = section === "skills" && tab === "clawhub";
   const showSkillsChildren = isClawHubActive ? true : skillsExpanded;
   const isSubagentsActive = section === "agents" && tab === "subagents";
-  const showAgentsChildren = isSubagentsActive ? true : agentsExpanded;
+  const isTeamActive = section === "agents" && tab === "team";
+  const showAgentsChildren = isSubagentsActive || isTeamActive ? true : agentsExpanded;
   const isHeartbeatActive = section === "cron" && tab === "heartbeat";
   const showCronChildren = isHeartbeatActive ? true : cronExpanded;
 

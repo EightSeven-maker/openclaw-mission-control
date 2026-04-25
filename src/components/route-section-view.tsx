@@ -76,6 +76,10 @@ const AgentsView = dynamic(
   () => import("@/components/agents-view").then((m) => m.AgentsView),
   { loading: () => <SectionLoading /> }
 );
+const TeamView = dynamic(
+  () => import("@/components/team-view").then((m) => m.TeamView),
+  { loading: () => <SectionLoading /> }
+);
 const UsageView = dynamic(
   () => import("@/components/usage-view").then((m) => m.UsageView),
   { loading: () => <SectionLoading /> }
@@ -167,6 +171,7 @@ export type DashboardSection =
   | "hooks"
   | "doctor"
   | "activity"
+  | "team"
   | "help";
 
 function SectionContent({ section }: { section: DashboardSection }) {
